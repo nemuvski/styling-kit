@@ -1,0 +1,32 @@
+{
+  "name": "styling-kit",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "gulp build",
+    "watch": "gulp build:watch",
+    "lint": "stylelint 'scss/**/*.{scss,sass}'",
+    "lint:fix": "stylelint --fix 'scss/**/*.{scss,sass}'"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^5.1.0",
+    "postcss": "^8.4.5",
+    "postcss-nested": "^5.0.6",
+    "prettier": "^2.5.1",
+    "sass": "^1.49.0",
+    "stylelint": "^14.3.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recommended-scss": "^5.0.2",
+    "stylelint-config-standard": "^24.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-prettier": "^2.0.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
+}
