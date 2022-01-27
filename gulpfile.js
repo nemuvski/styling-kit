@@ -1,10 +1,11 @@
 const gulp = require('gulp');
+const clip = require('gulp-clip-empty-files');
 const sass = require('gulp-sass')(require('sass'));
 const stylelint = require('gulp-stylelint');
 const postcss = require('gulp-postcss');
 
-gulp.task('build', () => {
-  return gulp
+function build(done) {
+  gulp
     .src('./scss/**/*.s[ca]ss')
     .pipe(
       stylelint({
@@ -14,9 +15,15 @@ gulp.task('build', () => {
     )
     .pipe(sass.sync({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(postcss([require('autoprefixer'), require('postcss-nested')]))
+    .pipe(clip())
     .pipe(gulp.dest('./css'));
-});
 
-gulp.task('build:watch', () => {
+  done();
+}
+
+function buildWatch() {
   gulp.watch('./scss/**/*.s[ca]ss', gulp.series('build'));
-});
+}
+
+exports.build = build;
+exports.watch = buildWatch;
