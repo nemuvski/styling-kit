@@ -11,6 +11,9 @@
 - `yarn run watch`
   - ウォッチモードで起動します。
   - Sass（SCSS）のファイルを変更すると、自動的にビルドします。
+- `yarn run opt:svg`
+  - `./assets/*.orig.svg` のファイルを対象に最適化したSVGファイルを `./assets/` に出力します。
+  - e.g. `./assets/sample.orig.svg` → `./assets/sample.svg`
 - `yarn run lint`
   - Sass（SCSS）のファイルを対象に、Stylelintをかけます。
 - `yarn run lint:fix`
