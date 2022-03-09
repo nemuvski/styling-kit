@@ -2,8 +2,8 @@
   "name": "styling-kit",
   "version": "0.1.0",
   "scripts": {
-    "build": "gulp build",
-    "watch": "gulp build:watch",
+    "build": "gulp buildSass",
+    "watch": "gulp watchSass",
     "lint": "stylelint 'scss/**/*.{scss,sass}'",
     "lint:fix": "stylelint --fix 'scss/**/*.{scss,sass}'"
   },
@@ -11,6 +11,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.2",
     "gulp": "^4.0.2",
+    "gulp-clip-empty-files": "^0.1.2",
     "gulp-postcss": "^9.0.1",
     "gulp-sass": "^5.1.0",
     "gulp-stylelint": "^13.0.0",

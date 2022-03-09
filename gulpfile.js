@@ -4,7 +4,7 @@ const sass = require('gulp-sass')(require('sass'));
 const stylelint = require('gulp-stylelint');
 const postcss = require('gulp-postcss');
 
-function build(done) {
+function buildSass(done) {
   gulp
     .src('./scss/**/*.s[ca]ss')
     .pipe(
@@ -14,16 +14,16 @@ function build(done) {
       })
     )
     .pipe(sass.sync({ outputStyle: 'compressed' }).on('error', sass.logError))
-    .pipe(postcss([require('autoprefixer'), require('postcss-nested')]))
+    .pipe(postcss([require('autoprefixer')({ grid: 'autoplace' }), require('postcss-nested')]))
     .pipe(clip())
     .pipe(gulp.dest('./css'));
 
   done();
 }
 
-function buildWatch() {
-  gulp.watch('./scss/**/*.s[ca]ss', gulp.series('build'));
+function watchSass() {
+  gulp.watch('./scss/**/*.s[ca]ss', gulp.series('buildSass'));
 }
 
-exports.build = build;
-exports.watch = buildWatch;
+exports.buildSass = buildSass;
+exports.watchSass = watchSass;
